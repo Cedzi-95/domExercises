@@ -2,7 +2,56 @@
     <head>
     <title> Sinzo</title>
         <body>
-            <script src="main.js" type="module"></script>
+           <script src="main.js" type="module"></script>
+            <!-- övning 7 -->
+            <!-- <div>Hej</div>
+            <button onclick="removeElement()">ta bort element</button>
+            <script>
+                function removeElement() {
+                    let element = document.querySelector('div');
+                    if (element) {
+                        element.remove();
+                    }
+                } 
+            </script> -->
+<!-- övning 8 -->
+            <!-- <div>Do not remove this</div>
+<div>Do not remove this</div>
+<div class="delete">Remove this</div>
+<div>Do not remove this</div>
+<div>Do not remove this</div>
+<button onclick="removeElement()"> Delete</button>
+<script>
+    function removeElement(){
+        let element = document.querySelector('.delete');
+        if(element)
+    {
+        element.remove();
+    }
+    }
+</script> -->
+
+<!-- övning 9 -->
+<div>Second place</div>
+<div>First place</div>        
+<script>
+    //hämta alla div-element
+    let divs = document.querySelectorAll('div');
+    //konvertera nodelist till array flr enklare hantering
+    let divsArray = Array.from(divs);
+
+    //sortera arrayen så att "first place" kommer flrst
+    divsArray.sort((a,b) => {
+        if (a.textContent.includes('First')) return -1
+        if (b.textContent.includes('First')) return 1;
+        return 0;
+    });
+    //ta bort de ursprungliga elementen
+    divs.forEach(div => div.remove());
+
+    //lägg till elementen i ny ordning
+    divsArray.forEach(div => document.body.appendChild(div));
+</script>    
         </body>
     </head>
 </html>
