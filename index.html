@@ -1,8 +1,35 @@
 <html>
     <head>
     <title> Sinzo</title>
+
+    <style>
+        .blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+    </style>
         <body>
            <script src="main.js" type="module"></script>
+
+           <script>
+            for (let i = 0; i < 10; i++)
+           {
+            let div = document.createElement('div');
+            div.textContent = i + 1;
+            if (i % 2 == 0)
+           {
+            div.className = 'blue';
+           }
+           else if (i % 2 == 1)
+           {
+            div.className = 'red';
+           }
+            document.body.appendChild(div);
+           }
+           </script>
             <!-- övning 7 -->
             <!-- <div>Hej</div>
             <button onclick="removeElement()">ta bort element</button>
@@ -31,7 +58,7 @@
     }
 </script> -->
 
-<!-- övning 9 -->
+<!-- övning 9
 <div>Second place</div>
 <div>First place</div>        
 <script>
@@ -51,7 +78,9 @@
 
     //lägg till elementen i ny ordning
     divsArray.forEach(div => document.body.appendChild(div));
-</script>    
+</script>     -->
+
+
         </body>
     </head>
 </html>
