@@ -2,29 +2,88 @@
     <head>
     <title> Sinzo</title>
     <style>
-        .button {
-            margin: 10px;
-            padding: 30px 40px;
-            font-size: 20px;
-            cursor: pointer;
-            background-color: brown;
-            color: rgb(225, 213, 213);
-            border:rgb(24, 14, 2);
-            border-radius: 4px;
-        }
-        .button:hover{
-            background-color: rgb(175, 167, 167);
-        }
+       .title{
+       
+        padding: 2 rem;
+        color: rgb(169, 23, 64);
+       }
+       #Todolist{
+      
+        color: black;
+        margin: 1rem;
+     
 
-        #button-container {
-            margin: 50px;
-        }
+       }
+       .button {
+        background-color: rgba(207, 11, 51, 0.496);
+        color: rgb(44, 7, 63);
+       }
+       .input{
+       
+        background-color: rgb(167, 162, 162);
+       }
     </style>
 </head>
         <body>
           
            <script src="main.js" type="module"></script>
+           <!-- Övning 12 -->
+            <!-- <h1>Todo List</h1>
+            <input type="text" />
+            <button>Add Todo</button>
+            <ul></ul>
+          </div> -->
 
+          <div id="Todolist"></div>
+          <script>
+            //create title
+            let title = document.createElement('h1');
+            title.textContent = 'Todo list';
+            title.className = 'title';
+            document.getElementById('Todolist').appendChild(title)
+
+           //create input
+           let input = document.createElement('input');
+           input.type = 'text';
+           input.className = 'input'
+           document.getElementById('Todolist').appendChild(input);
+
+           //create button
+           let button = document.createElement('button');
+           button.textContent = 'Add task'
+           button.className = 'button'
+           document.getElementById('Todolist').appendChild(button);
+
+           //create ul element
+           let ulElement = document.createElement('ul');
+           document.getElementById('Todolist').appendChild(ulElement);
+
+           let Todolist = [];
+           
+           button.onclick = function() {
+            //get input value
+            let todoText = input.value;
+
+            if (todoText.trim() !== '') {
+                //add to array
+                Todolist.push(todoText);
+
+                //create new li element
+                let li = document.createElement('li');
+                li.textContent = todoText;
+                ulElement.appendChild(li);
+
+                //clear input
+                input.value = '';
+            }
+           };
+
+
+
+          
+
+          </script>
+<!-- 
            <div id="button-container"></div>
         <script>
            let currentActiveButton = null;
@@ -50,7 +109,7 @@
            //skapa första knappen när sidan laddas
            createButton();
         </script>
-        
+         -->
 
 
 
