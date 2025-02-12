@@ -1,20 +1,95 @@
 <html>
     <head>
     <title> Sinzo</title>
-
     <style>
-        .blue {
-  background-color: blue;
-}
+        .button {
+            margin: 10px;
+            padding: 30px 40px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: brown;
+            color: rgb(225, 213, 213);
+            border:rgb(24, 14, 2);
+            border-radius: 4px;
+        }
+        .button:hover{
+            background-color: rgb(175, 167, 167);
+        }
 
-.red {
-  background-color: red;
-}
+        #button-container {
+            margin: 50px;
+        }
     </style>
+</head>
         <body>
+          
            <script src="main.js" type="module"></script>
 
-           <script>
+           <div id="button-container"></div>
+        <script>
+           let currentActiveButton = null;
+
+           function createButton() {
+            let button = document.createElement('button');
+            button.textContent = 'Click here'
+            button.className = 'button';
+
+            //om det finns en aktiv knapp, ta bort dess klick-händelse
+            if (currentActiveButton) {
+                currentActiveButton.onclick = null;
+            }
+            //sätt den nya knappen som aktiv
+            currentActiveButton = button;
+
+            //lägg till klick-händelse på den nya knappen
+            button.onclick = createButton;
+
+            //lägg till knappen i containern
+            document.getElementById('button-container').appendChild(button);
+           }
+           //skapa första knappen när sidan laddas
+           createButton();
+        </script>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- //övning 10 -->
+           <!-- <div id="app"></div>
+           <div id="output"></div>
+            <script>
+                let input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'color';
+                input.placeholder = 'Write something here ...';
+                input.placeholder.className = 'color';
+                //lägg till input i DOM:en
+                document.getElementById('app').appendChild(input);
+
+                //lägg till event listener för input händelser
+                input.addEventListener('input', function(e){
+                    document.getElementById('output').textContent = 'Hello';
+                })
+            </script> -->
+           <!-- Övning 9 -->
+           <!-- <script>
             for (let i = 0; i < 10; i++)
            {
             let div = document.createElement('div');
@@ -29,7 +104,7 @@
            }
             document.body.appendChild(div);
            }
-           </script>
+           </script> -->
             <!-- övning 7 -->
             <!-- <div>Hej</div>
             <button onclick="removeElement()">ta bort element</button>
@@ -82,5 +157,5 @@
 
 
         </body>
-    </head>
+   
 </html>
