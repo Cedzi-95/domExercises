@@ -2,33 +2,89 @@
     <head>
     <title> Sinzo</title>
     <style>
-       .title{
-       
-        padding: 2 rem;
-        color: rgb(169, 23, 64);
-       }
-       #Todolist{
-      
-        color: black;
-        margin: 1rem;
-     
+      .container {
+        display: flex;
+        align-items: center;
+        gap:1rem;
+        padding: 1 rem;
+      }
 
-       }
-       .button {
-        background-color: rgba(207, 11, 51, 0.496);
-        color: rgb(44, 7, 63);
-       }
-       .input{
-       
-        background-color: rgb(167, 162, 162);
-       }
+      button {
+        padding: 0.5rem 1 rem;
+        font-size: 1.25rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .plus-button {
+        background-color: green;
+        color: white;
+      }
+      .plus-button:hover {
+        background-color: bisque;
+      }
+      .minus-button{
+        background-color: crimson;
+        columns: white;
+      }
+      .minus-button:hover{
+        background-color: aquamarine;
+      }
+      .counter{
+        font-size: 1.25rem;
+        font-weight: 600;
+        min-width: 2rem;
+        text-align: center;
+      }
     </style>
 </head>
         <body>
           
            <script src="main.js" type="module"></script>
+<!-- övning 14
 
-          <form>
+         <div id="container" class="container">
+            <button id="minusButton" class="minus-button">-</button>
+            <span id="counter" class="counter">0</span>
+            <button id="plusButton" class="plus-button">+</button>
+         </div>
+
+         <script>
+            //get dom elements
+            let counter = document.getElementById('counter');
+            let plusbutton = document.getElementById('plusButton');
+            let minusButton = document.getElementById('minusButton');
+
+            let count = 0;
+
+            function updateDisplay() {
+                counter.textContent = count;
+            }
+
+
+            //event handler for plus button
+            plusbutton.addEventListener('click', function() {
+               if (count < 11)
+               {
+                count++;
+                updateDisplay();
+               }
+            });
+            //Event handler for minus button
+            minusButton.addEventListener('click', function(){
+                if(count > -10)
+            {
+                count--;
+                updateDisplay();
+            }
+            });
+        
+         </script> -->
+
+          <!-- <form>
             <select name="" id="colorSelect">
                 <option value="red">Red</option>
                 <option value="blue">Blue</option>
@@ -53,7 +109,7 @@
 
            
           </script>
-
+ -->
 
 
            <!-- Övning 12 -->
