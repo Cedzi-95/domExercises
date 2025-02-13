@@ -2,48 +2,91 @@
     <head>
     <title> Sinzo</title>
     <style>
-      .container {
-        display: flex;
-        align-items: center;
-        gap:1rem;
-        padding: 1 rem;
-      }
-
-      button {
-        padding: 0.5rem 1 rem;
-        font-size: 1.25rem;
-        font-weight: bold;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.2s;
-      }
-
-      .plus-button {
-        background-color: green;
-        color: white;
-      }
-      .plus-button:hover {
-        background-color: bisque;
-      }
-      .minus-button{
-        background-color: crimson;
-        columns: white;
-      }
-      .minus-button:hover{
-        background-color: aquamarine;
-      }
-      .counter{
-        font-size: 1.25rem;
-        font-weight: 600;
-        min-width: 2rem;
-        text-align: center;
-      }
+        
+        .grid-container {
+            width: 270px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .grid-item {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            display: inline-block;
+            margin: 1px;
+            cursor: pointer;
+        }
+        .active {
+            background-color: yellow;
+        }
+        .instructions {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+        }
     </style>
 </head>
         <body>
           
            <script src="main.js" type="module"></script>
+
+<!-- övning 15 -->
+            <div class="grid-container" id="grid"></div>
+            <p class="instructions">Klicka på rutorna för att ändra färg. Fem i rad åreterställer spelet</p>
+            <script>
+                function createGrid() {
+                    let grid = document.getElementById('grid');
+                    for (let i = 0; i < 25; i++)
+                {
+                    let cell = document.createElement('div');
+                    cell.className = 'grid-item';
+                    cell.dataset.index = i;
+                    grid.appendChild(cell);
+                }
+                }
+                function checkWin() {
+                    let cells = document.getElementsByClassName('grid-item');
+                    let isActive = (index) => cells[index].classList.contains('active');
+                    
+                    //kontrollera rader
+                    for (let i = 0; i < 25; i+= 5)
+                {
+                    if ([0,1,2,3,4].every(j => isActive(i + j))) return true;
+                }
+
+                //kontrollera kolumner
+                for(let i = 0; i < 5; i++)
+                {
+                    if ([0,1,2,3,4].every(i => isActive(i))) return true;
+                }
+
+                //kontrollera diagonal från övre vänstra hörnet
+                if ([0,6,12,18,24].every(i => isActive(i))) return true;
+
+                //kontrollera diagonal från övre högra hörnet
+                if([4,8,12,16,20].every(i => isActive(i))) return true;
+                
+                return false;
+                }
+
+                function resetGrid() {
+                    let cells = document.getElementByClassName('grid-item');
+                    Array.from(cells).forEach(cell => cell.classList.remove('active'));
+                }
+
+                function handleClick(event) {
+                    if (!event.target.classList.contains('grid-item')) return;
+                    event.target.classList.toggle('active');
+                    if (checkWin()) 
+                    {
+                        setTimeout(() => {
+                            resetGrid();
+                        }, 100);                       
+                    }
+                }
+                createGrid();
+                document.getElementById('grid').addEventListener('click', handleClick);
+            </script>
 <!-- övning 14
 
          <div id="container" class="container">
