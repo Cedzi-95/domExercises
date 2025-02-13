@@ -27,14 +27,43 @@
         <body>
           
            <script src="main.js" type="module"></script>
+
+          <form>
+            <select name="" id="colorSelect">
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="green">Green</option>    
+            </select>
+            <div id="colorBox" style="width: 100px; height: 100px; border: 1px solid black;"></div>
+          </form>
+
+          <script>
+            //övning 13
+            //hämta referenser till dom elementen
+            let select = document.getElementById('colorSelect');
+            let colorBox = document.getElementById('colorBox');
+
+            //sätt initial färg
+            colorBox.style.backgroundColor = select.value;
+
+            //lägg till evenet listerner för färgändringar
+            select.addEventListener('change', function(event) {
+                colorBox.style.backgroundColor = event.target.value;
+            });
+
+           
+          </script>
+
+
+
            <!-- Övning 12 -->
             <!-- <h1>Todo List</h1>
             <input type="text" />
             <button>Add Todo</button>
             <ul></ul>
           </div> -->
-
-          <div id="Todolist"></div>
+<!-- 
+            <div id="Todolist"></div>
           <script>
             //create title
             let title = document.createElement('h1');
@@ -77,12 +106,11 @@
                 input.value = '';
             }
            };
-
-
+  </script>
+ -->
 
           
 
-          </script>
 <!-- 
            <div id="button-container"></div>
         <script>
