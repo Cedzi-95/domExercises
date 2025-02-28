@@ -76,12 +76,15 @@
 //   document.body.appendChild(table);
 
 //Övning 6
-function removeElement() {
-  let element = document.querySelector('div');
-  if (element) {
-      element.remove();
-  }
-}
-
+// function removeElement() {
+//   let element = document.querySelector('div');
+//   if (element) {
+//       element.remove();
+//   }
+// }
+const heading = document.createElement('h1');
+const headingText = document.createTextNode("Big head!");
+heading.appendChild(headingText);
+document.body.appendChild(heading);
 
 
